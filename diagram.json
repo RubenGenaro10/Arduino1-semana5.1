@@ -1,1 +1,71 @@
-{"version": 1,"author": "RubenGenaro10","editor": "wokwi","parts": [{"type": "wokwi-arduino-uno","id": "uno","top": 0,"left": 0,"attrs": {}}],"connections": []}
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -108.6, "left": -6.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -76.2, "left": 249, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -248.1, "left": 24.7, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic2",
+      "top": 221.3,
+      "left": 477.3,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic3", "top": -257.7, "left": 466.3, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic4",
+      "top": 203.1,
+      "left": 24.7,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -118.4,
+      "left": 735.2,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -259.2,
+      "left": 230.4,
+      "attrs": { "text": "FL" }
+    },
+    { "type": "wokwi-text", "id": "text2", "top": 316.8, "left": 76.8, "attrs": { "text": "BL" } },
+    { "type": "wokwi-text", "id": "text3", "top": -288, "left": 547.2, "attrs": { "text": "FR" } },
+    { "type": "wokwi-text", "id": "text4", "top": 307.2, "left": 576, "attrs": { "text": "BR" } }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:bp.20", "red", [ "v28.7", "h-168.2" ] ],
+    [ "uno:GND.2", "bb1:bn.19", "black", [ "v38.3", "h-187.3" ] ],
+    [ "bb1:tp.1", "bb1:bp.1", "red", [ "v0" ] ],
+    [ "bb1:tn.2", "bb1:bn.2", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "bb1:tp.5", "red", [ "v19.2", "h-19.2", "v38.1" ] ],
+    [ "ultrasonic1:GND", "bb1:tn.8", "black", [ "v0" ] ],
+    [ "ultrasonic3:VCC", "bb1:tp.45", "red", [ "v0" ] ],
+    [ "ultrasonic3:GND", "bb1:tn.46", "black", [ "v0" ] ],
+    [ "ultrasonic4:GND", "bb1:bn.9", "black", [ "v0" ] ],
+    [ "ultrasonic4:VCC", "bb1:bp.12", "red", [ "h1.4", "v-39.4", "v-85.5" ] ],
+    [ "ultrasonic2:VCC", "bb1:bp.48", "red", [ "v-143.1" ] ],
+    [ "ultrasonic2:GND", "bb1:bn.46", "black", [ "v0" ] ],
+    [ "lcd1:GND", "bb1:tn.50", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "bb1:bp.50", "red", [ "h-28.8", "v154.6" ] ],
+    [ "uno:2", "ultrasonic3:ECHO", "orange", [ "v-67.2", "h71.3", "v-28.8" ] ],
+    [ "uno:3", "ultrasonic3:TRIG", "purple", [ "v-76.8", "h71.2", "v-19.2" ] ],
+    [ "uno:4", "ultrasonic1:ECHO", "orange", [ "v0" ] ],
+    [ "uno:5", "ultrasonic1:TRIG", "purple", [ "v-67.2", "h-351" ] ],
+    [ "ultrasonic2:ECHO", "uno:6", "orange", [ "v-48", "h-114.4", "v-240" ] ],
+    [ "ultrasonic2:TRIG", "uno:7", "purple", [ "v-38.4", "h-134", "v-249.6" ] ],
+    [ "ultrasonic4:ECHO", "uno:8", "orange", [ "v-317.8", "h319", "v48" ] ],
+    [ "ultrasonic4:TRIG", "uno:9", "purple", [ "v-327.4", "h222.6", "h76" ] ],
+    [ "lcd1:SDA", "uno:A4", "blue", [ "h-57.6", "v221", "h-186.6" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h-19.2", "v192.3", "h-215.5" ] ]
+  ],
+  "dependencies": {}
+}
